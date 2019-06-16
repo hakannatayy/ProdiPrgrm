@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin.Controls;
 using MaterialSkin;
+using System.Diagnostics;
 
 namespace Uygulama
 {
@@ -24,6 +25,32 @@ namespace Uygulama
             MaterialSkinManager msm = MaterialSkinManager.Instance;
             msm.AddFormToManage(this);
             msm.Theme = MaterialSkinManager.Themes.DARK;
+
+          
+          
+                Button1.Enabled = false;
+            
+        }
+
+        private void startNewTask()
+        {
+            try
+            {
+                Process.Start(textBox1.Text.Trim());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Sistem belirtilen dosyayı bulamadı.", "Hata");
+
+                Debug.WriteLine(ex.Message);
+            }
+
+            this.Dispose();
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            this.startNewTask();
         }
     }
 }

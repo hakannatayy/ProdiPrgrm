@@ -128,5 +128,13 @@ namespace Uygulama
         {
             this.setButtonsEnabledState(listBox1.Items.Count > 0);
         }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            using (Form2 newTaskForm = new Form2())
+            {
+                newTaskForm.ShowDialog();
+            }
+        }
     }
 }
